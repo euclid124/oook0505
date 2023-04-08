@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: road
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: road
+  template:
+    metadata:
+      labels:
+        app: road
+    spec:
+      containers:
+      - image: okteto.dev/road:latest
+        name: road
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "69c487f7-c07f-4430-95b8-cb28b4404048"
+        - name: Vless_Path
+          value: "/missyou"
+        - name: Vmess_UUID
+          value: "69c487f7-c07f-4430-95b8-cb28b4404048"
+        - name: Vmess_Path
+          value: "/mybaby"
+        - name: Share_Path
+          value: "/v2link"
